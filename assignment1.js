@@ -1,47 +1,37 @@
 $(document).ready(function() {
-<<<<<<< HEAD
-    setInterval(function() {
-=======
+    $(".page-link").click(function() {
+        // e.preventDefaut();
+        var id = $(this).attr("data-id");
+        var select_id = $(this).parent().attr("id");
+        getajax(id, select_id);
 
-    function getajax() {
->>>>>>> e13472c8908ac16926ded92af2ce0443bcd0d8e6
+    });
+
+    function getajax(getid, select_id) {
         $.ajax({
             url: 'ajaxfile.php',
             type: 'get',
+            data: {
+                page: getid
+            },
             dataType: 'JSON',
             success: function(response) {
                 console.log(response);
                 var len = response.length;
-<<<<<<< HEAD
-=======
                 var tr_str;
->>>>>>> e13472c8908ac16926ded92af2ce0443bcd0d8e6
                 for (var i = 0; i < len; i++) {
                     var id = response[i].id;
                     var name = response[i].name;
                     var email = response[i].email;
                     var message = response[i].message;
                     var date = response[i].date;
-<<<<<<< HEAD
-                    var tr_str = "<tr>" +
-=======
                     tr_str += "<tr>" +
->>>>>>> e13472c8908ac16926ded92af2ce0443bcd0d8e6
                         "<td>" + (i + 1) + "</td>" +
                         "<td>" + name + "</td>" +
                         "<td>" + email + "</td>" +
                         "<td>" + message + "</td>" +
                         "<td>" + date + "</td>" +
                         "</tr>";
-<<<<<<< HEAD
-                    $("#userTable tbody").html(tr_str);
-
-                }
-            }
-        });
-    }, 10000); //10000 milliseconds = 10 seconds
-});
-=======
                 }
                 $("#userTable tbody").html(tr_str);
             }
@@ -49,5 +39,7 @@ $(document).ready(function() {
     }
     getajax();
     setInterval(getajax, 10000); //10000 milliseconds = 10 seconds
-});;
->>>>>>> e13472c8908ac16926ded92af2ce0443bcd0d8e6
+
+
+
+});
