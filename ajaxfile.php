@@ -4,7 +4,11 @@ include "config.php";
 //define empty array
 $return_arr = array();
 // sql select statement
+<<<<<<< HEAD
 $query = "SELECT * FROM ( SELECT * FROM json ORDER BY id DESC LIMIT 5) sub ORDER BY id ASC ";
+=======
+$query = "SELECT * FROM json ORDER BY id DESC LIMIT 5";
+>>>>>>> e13472c8908ac16926ded92af2ce0443bcd0d8e6
 $result = $mysqli->query($query);
 while($row = $result->fetch_assoc()){
     $id = $row['id'];
