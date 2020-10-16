@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('#submit').click(function() {
+        event.preventDefault();
         var name = $("#name").val();
         var email = $("#email").val();
         var message = $("#message").val();
@@ -42,8 +43,8 @@ $(document).ready(function() {
             data: data,
             success: function(returndata) {
                 alert(returndata);
-                window.location.href = "assignment1.php";
-
+                $('input').val('');
+                $("#form")[0].reset();
 
             }
         });

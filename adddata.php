@@ -46,7 +46,7 @@
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button type="button" id="submit" class="btn btn-deep-orange">Sign up</button>
+        <button type="button" id="submit" data-dismiss="modal" class="btn btn-deep-orange">Sign up</button>
       </div>
     </div>
   </div>
