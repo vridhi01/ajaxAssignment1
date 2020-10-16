@@ -1,24 +1,25 @@
 $(document).ready(function() {
     $(".page-link").click(function() {
-        // e.preventDefaut();
+        event.preventDefault();
         var id = $(this).attr("data-id");
-        var select_id = $(this).parent().attr("id");
-        getajax(id, select_id);
+        getajax(id);
+        clearInterval(myVar);
 
     });
 
-    function getajax(getid, select_id) {
+    function getajax(id) {
         $.ajax({
             url: 'ajaxfile.php',
             type: 'get',
-            data: {
-                page: getid
-            },
             dataType: 'JSON',
+            data: {
+                page: id
+            },
             success: function(response) {
                 console.log(response);
                 var len = response.length;
                 var tr_str;
+
                 for (var i = 0; i < len; i++) {
                     var id = response[i].id;
                     var name = response[i].name;
@@ -38,8 +39,5 @@ $(document).ready(function() {
         });
     }
     getajax();
-    setInterval(getajax, 10000); //10000 milliseconds = 10 seconds
-
-
-
-});
+    var myVar = setInterval(getajax, 10000); //10000 milliseconds = 10 seconds
+});;
