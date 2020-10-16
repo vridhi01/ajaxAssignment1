@@ -1,10 +1,13 @@
 $(document).ready(function() {
-    var mypage;
+    var pageid;
+    var pageactive;
     $(".page-link").click(function() {
         event.preventDefault();
         var id = $(this).attr("data-id");
-        getajax(id);
-        mypage = id;
+        var activeclass = $(this).attr("class");
+        getajax(id, activeclass);
+        pageid = id;
+        pageactive = activeclass;
     });
 
     function getajax(id) {
@@ -38,8 +41,8 @@ $(document).ready(function() {
         });
 
     }
-    getajax(mypage);
+    getajax(pageid, pageactive);
     setInterval(function() {
-        getajax(mypage);
+        getajax(pageid, pageactive);
     }, 10000); //10000 milliseconds = 10 seconds
 });

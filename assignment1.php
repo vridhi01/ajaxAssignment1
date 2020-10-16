@@ -9,6 +9,7 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
    </head>
    <body>
+   <?php   include 'adddata.php'  ?>
       <div class="container">
          <table id="userTable" class="table table-striped">
             <thead>
@@ -43,7 +44,7 @@
               else{
                 $active = "";
               }
-                echo '<li class="page-item '.$active.'"><a class="page-link" id='.$i.' data-id='.$i.' href="">'.$i.'</a></li>';
+                echo '<li class='.$active.'><a class="page-link" id='.$i.' data-id='.$i.' href="">'.$i.'</a></li>';
           }
           // if($total_pages > $page){
           //     echo '<li class="page-item"><a class="page-link" id='.($page+1).' data-id='.($page+1).' href="">Next</a></li>';
