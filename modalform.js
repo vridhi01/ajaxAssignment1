@@ -42,13 +42,21 @@ $(document).ready(function() {
             type: 'POST',
             data: data,
             success: function(returndata) {
-                alert(returndata);
-                $('input').val('');
-                $("#form")[0].reset();
+                if (returndata == 'true') {
+                    $('#sucfailmsg').append('<div class="alert alert-success" role="alert">form submitted successfully</div>');
+                    setTimeout(function() {
+                        $('#sucfailmsg').hide();
+                    }, 10000);
+                    $("#form")[0].reset();
 
+                } else {
+                    $('#sucfailmsg').append('<div class="alert alert-danger" role="alert">Error in submitting form</div>');
+                    setTimeout(function() {
+                        $('#sucfailmsg').hide();
+                    }, 10000);
+                }
             }
         });
-
-
     });
+
 });

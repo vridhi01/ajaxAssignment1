@@ -4,22 +4,31 @@
   <title>Form</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="modalform.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary buttonstyle" data-toggle="modal" data-target="#exampleModal">
+  Form modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Form</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+        <h3 class="modal-title" id="exampleModalLabel">Form</h3>
+       
       </div>
-      <div class="modal-body mx-3">
+      <!-- modalbody -->
+      <div class="modal-body">
+      <form id="form">
+      <div id="sucfailmsg" style="color:green"></div>
+     
+     <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <i class="fas fa-user prefix grey-text"></i>
           <label data-error="wrong" data-success="right" for="orangeForm-name">name</label>
@@ -43,18 +52,17 @@
           <label data-error="wrong" data-success="right" for="orangeForm-pass">date</label>
           <input type="date" id="date" class="form-control validate">
         </div>
-
       </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button type="button" id="submit" data-dismiss="modal" class="btn btn-deep-orange">Sign up</button>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button"   id="submit"  class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
 </div>
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">
-    Modal Register Form</a>
-</div>
- <script src="adddata.js"></script>
+
+<script src="modalform.js"></script>
 </body>
 </html>
